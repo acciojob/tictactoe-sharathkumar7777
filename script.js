@@ -5,7 +5,7 @@ const cells = document.querySelectorAll(".cell");
 
 let player1 = "";
 let player2 = "";
-let currentPlayer = "X";
+let currentPlayer = "x";   // 🔥 lowercase
 let gameOver = false;
 
 const winPatterns = [
@@ -30,18 +30,19 @@ cells.forEach(cell => {
   cell.addEventListener("click", () => {
     if (cell.textContent !== "" || gameOver) return;
 
-    cell.textContent = currentPlayer;
+    cell.textContent = currentPlayer;   // x or o
 
     if (checkWin()) {
-      const winner = currentPlayer === "X" ? player1 : player2;
+      const winner = currentPlayer === "x" ? player1 : player2;
       message.textContent = `${winner} congratulations you won!`;
       gameOver = true;
       return;
     }
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    currentPlayer = currentPlayer === "x" ? "o" : "x";
+
     message.textContent =
-      currentPlayer === "X"
+      currentPlayer === "x"
         ? `${player1}, you're up`
         : `${player2}, you're up`;
   });
